@@ -1,6 +1,6 @@
 # Flask_MongoDB_Application
 
-This is a simple Flask application that interacts with a MongoDB database to perform CRUD (Create, Read, Update, Delete) operations on user data. The application is containerized using Docker, and the MongoDB instance is also run as a Docker container.
+This project is a simple Flask API that interacts with a MongoDB database to perform CRUD (Create, Read, Update, Delete) operations on user data. Both the Flask application and MongoDB are containerized using Docker, making it easy to set up and run the project.
 
 ## Prerequisites
 
@@ -9,19 +9,10 @@ Before you begin, ensure you have the following installed:
 - **Docker**: [Install Docker](https://docs.docker.com/get-docker/)
 - **Docker Compose**: [Install Docker Compose](https://docs.docker.com/compose/install/)
 
-## Setup Instructions
+Access the Application
+Flask API: The API will be available at http://localhost:5000.
 
-1) Start the MongoDB Container
-
-The application uses MongoDB as its database. You can start the MongoDB container using Docker Compose:
-
-docker-compose up -d
-
-2) Run the Flask Application
-
-python main.py
-
-3) Stopping the Application
+MongoDB: The database will be available at mongodb://root:example@localhost:27017
 
 # API Endpoints
 
@@ -30,9 +21,9 @@ python main.py
    - Send a JSON payload in the request body.
    - Example request:
      {
-       "name": "John Doe",
-       "email": "john@example.com"
-     }
+  "name": "Aarav Patel",
+  "email": "aarav.patel@example.com"
+      }
    - Response:
      {
        "message": "Data stored successfully",
@@ -45,10 +36,10 @@ python main.py
    - Response:
      [
        {
-         "_id": "652d9f0b0c1e4b2f5b1a2c3d",
-         "name": "John Doe",
-         "email": "john@example.com"
-       }
+    "_id": "<user_id>",
+    "name": "Aarav Patel",
+    "email": "aarav.patel@example.com"
+        }
      ]
 
 3️. **GET /users/<id>**
@@ -56,19 +47,19 @@ python main.py
    - If the ID is invalid or not found, it returns an error.
    - Example response:
      {
-       "_id": "652d9f0b0c1e4b2f5b1a2c3d",
-       "name": "John Doe",
-       "email": "john@example.com"
-     }
+  "_id": "<user_id>",
+  "name": "Aarav Patel",
+  "email": "aarav.patel@example.com"
+   }
 
 4️. **PUT /users/<id>**
    - Updates a user’s `name` and `email` by their ID.
    - Requires a JSON body with `name` and `email` fields.
    - Example request:
      {
-       "name": "John Smith",
-       "email": "johnsmith@example.com"
-     }
+  "name": "Aarav Singh",
+  "email": "aarav.singh@example.com"
+   }
    - Response:
      {
        "message": "User updated successfully"
